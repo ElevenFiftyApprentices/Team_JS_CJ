@@ -27,7 +27,7 @@ export class AddShoppingItemComponent implements OnInit {
 
     // this.firebaseService.addShoppingItem(shoppingItem);
 
-    this.router.navigate(['shoppingItems']);
+    this.router.navigate(['/']);
   }
 
 }
