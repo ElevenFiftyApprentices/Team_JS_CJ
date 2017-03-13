@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Router} from '@angular/router';
 
 @Component({
@@ -7,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
+
     addContent:any;
     addPriority:string;
 
@@ -27,4 +29,5 @@ export class AddShoppingItemComponent implements OnInit {
 
     this.router.navigate(['shoppingItems']);
   }
+
 }
