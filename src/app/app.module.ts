@@ -11,6 +11,14 @@ import { AddShoppingListComponent } from './components/add-shopping-list/add-sho
 import { AddShoppingItemComponent } from './components/add-shopping-item/add-shopping-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyDg5lO-NWfKy9Tj9VLMCR9QArSpyOtp9uQ",
+  authDomain: "shoppinglistapp-45ee3.firebaseapp.com",
+  databaseURL: "https://shoppinglistapp-45ee3.firebaseio.com",
+  storageBucket: "shoppinglistapp-45ee3.appspot.com",
+  messagingSenderId: "464627240260"
+};
+
 const appRoutes: Routes = [
   {path:'', component:ShoppingListComponent},
   {path:'add-shopping-item', component:AddShoppingItemComponent}
