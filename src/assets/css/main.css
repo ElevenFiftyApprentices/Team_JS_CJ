@@ -1,5 +1,5 @@
 .navbar {border-radius: 0;}
-.container {background-color:#fff;padding:15px;border:4px solid #333;}
+#shoplistcontainer.container {background-color:#fff;padding:15px;border:4px solid #333;}
 table thead tr {background-color:#ccc;}
 table thead tr td {font-weight:bold;}
 table tr td:first-child {width:15px;}

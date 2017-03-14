@@ -1,12 +1,11 @@
-<div class="container">
-  <router-outlet></router-outlet>
+<div id="shoplistcontainer" class="container">
   <article class="row">
     <div class="col-md-6">
        <h1>Groceries <small>Shopping List</small></h1>  
     </div>
     <div class="col-md-6 text-right">
-      <button class="btn btn-default" id="deleteAll">Delete</button>
-      <button class="btn btn-primary" id="Add">Add Item</button>
+      <a class="btn btn-default" id="deleteAll">Delete Checked</a>
+      <a [routerLink]="['add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
     </div>
   </article>
   <hr>
@@ -15,7 +14,7 @@
       <thead>
         <tr>
           <td></td>
-          <td>Content</td>
+          <td>Contents</td>
           <td>Options</td>
         </tr>
       </thead>
@@ -23,7 +22,7 @@
         <tr *ngFor="let listings of listings">
           <td><input type="checkbox" id="check"></td>
           <td>{{listings.owner}}</td>
-          <td><button class="btn btn-default" id="delete">Delete</button></td>
+          <td><a class="btn btn-default" id="delete">Delete</a></td>
         </tr>
       </tbody>
     </table>
