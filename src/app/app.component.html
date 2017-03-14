@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
 <div class="container">
   <router-outlet></router-outlet>
+
+  <ul *ngFor="let listings of listings">
+    <li>{{listings.owner}}</li>
+  </ul>
 </div>
