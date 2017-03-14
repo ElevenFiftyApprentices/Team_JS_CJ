@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-add-shopping-item',
   templateUrl: './add-shopping-item.component.html',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddShoppingItemComponent implements OnInit {
 
-  constructor() { }
+    addContent:any;
+    addPriority:string;
+
+  constructor(
+    // private firebaseService:firebaseService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
+  }
+  onAddSubmit(){
+    let shoppingItem = {
+      addContent: this.addContent,
+      addPriority: this.addPriority
+    }
+
+    // this.firebaseService.addShoppingItem(shoppingItem);
+
+    this.router.navigate(['/']);
   }
 
 }
