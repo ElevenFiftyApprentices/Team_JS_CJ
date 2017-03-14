@@ -19,9 +19,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let listings of listings">
+        <tr *ngFor="let shoppingList of shoppingList">
           <td><input type="checkbox" id="check"></td>
-          <td>{{listings.owner}}</td>
+          <td>{{shoppingList.contents}}</td>
           <td><a class="btn btn-default" id="delete">Delete</a></td>
         </tr>
       </tbody>

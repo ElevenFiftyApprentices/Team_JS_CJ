@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseService} from '../../services/firebase.services';
-import {Listings} from '../../Listings';
+import { FirebaseService } from '../../services/firebase.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -8,14 +7,16 @@ import {Listings} from '../../Listings';
   styleUrls: ['./shopping-list.component.css'],
   providers: [FirebaseService]
 })
+
 export class ShoppingListComponent implements OnInit {
-  listings:Listings[];
-  constructor(private _firebaseService:FirebaseService) {
-  }
+  shoppingList:any;
+
+  constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit(){
-    this._firebaseService.getListings().subscribe(listings => { 
-      this.listings = listings;
+    this.firebaseService.getShoppingList().subscribe(shoppingList => { 
+      console.log(shoppingList);
+      this.shoppingList = shoppingList;
     });
   }
 }
