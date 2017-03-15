@@ -1,19 +1,46 @@
-import {Injectable} from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import 'rxjs/add/operator/map';
-import {Listings} from '../Listings';
+import { Injectable } from '@angular/core';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Injectable()
-export class FirebaseService{
-    listings: FirebaseListObservable<Listings[]>
+export class FirebaseService {
+  shoppingItems: FirebaseListObservable<any[]>;
+  shoppingItem: FirebaseObjectObservable<any[]>;
+  folder: any;
 
-    constructor(private _af: AngularFire){
-    
+    constructor(private af: AngularFire) {
+    this.folder = 'shoppingItemimages';
+  }
+
+    getShoppingItems(){
+        this.shoppingItems = this.af.database.list('/shoppingitems') as 
+        FirebaseListObservable<ShoppingItem[]>
+        return this.shoppingItems;
     }
-    getListings(){
-        this.listings = this._af.database.list('/listings') as 
-        FirebaseListObservable<Listings[]>
-        return this.listings;
+
+    getShoppingItemDetails(id){
+    this.shoppingItem = this.af.database.object('/shoppingitems/'+id) as FirebaseObjectObservable<ShoppingItem>
+    return this.shoppingItem;
+  }
+
+  addShoppingItems(shoppingItem){
+    // Create root ref
+    let storageRef = firebase.storage().ref();
+    for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+      let path = `/${this.folder}/${selectedFile.name}`;
+      let iRef = storageRef.child(path);
+      iRef.put(selectedFile).then((snapshot) => {
+        shoppingItem.image = selectedFile.name;
+        shoppingItem.path = path;
+        return this.shoppingItems.push(shoppingItem);
+      });
     }
+  }
+
 }
 
+interface ShoppingItem{
+    $key?: string;
+    contents?: string;
+    priority?: string;
+ }
