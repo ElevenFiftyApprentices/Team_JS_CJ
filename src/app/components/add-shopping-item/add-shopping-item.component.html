@@ -12,11 +12,11 @@
     <form (submit)="onAddSubmit()">
       <div class="form-group">
         <label>Contents</label>
-        <input class="form-control" type="text" [(ngModel)]="addContent" name="addContent" required>
+        <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
       </div>
       <div class="form-group">
         <label>Priority</label>
-        <select class="form-control" type="text" [(ngModel)]="addPriority" name="addPriority" required>
+        <select class="form-control" type="text" [(ngModel)]="city" name="city" required>
           <option value="It can wait">It Can Wait</option>
           <option value="Need it soon">Need it soon</option>
           <option value="Grab it now">Grab it now!</option>

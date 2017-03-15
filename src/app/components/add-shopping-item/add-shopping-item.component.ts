@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FirebaseService} from '../../services/firebase.services';
+// import {Listings} from '../../Listings';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,24 +9,32 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
-
-    addContent:any;
-    addPriority:string;
+  // title:any;
+  owner:any;
+  city:any;
+  // bedrooms:any;
+  // price:any;
+  // type:any;
+  // image:any;
 
   constructor(
-    // private firebaseService:firebaseService,
+    private firebaseService:FirebaseService,
     private router:Router
   ) { }
 
   ngOnInit() {
   }
   onAddSubmit(){
-    let shoppingItem = {
-      addContent: this.addContent,
-      addPriority: this.addPriority
+    let listings = {
+      // title: this.title,
+      city: this.city,
+      owner: this.owner
+      // bedrooms:this.bedrooms,
+      // price: this.price,
+      // type: this.type
     }
 
-    // this.firebaseService.addShoppingItem(shoppingItem);
+    this.firebaseService.addListings(listings);
 
     this.router.navigate(['/']);
   }
