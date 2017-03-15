@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
-import {FirebaseService} from './services/firebase.services';
+import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { ShoppingListsComponent } from './components/shopping-lists/shopping-lists.component';
@@ -21,15 +20,8 @@ export const firebaseConfig = {
   messagingSenderId: "894956291151"
 };
 
-const firebaseAuthConfig = {
-  provider: AuthProviders.Google,
-  method: AuthMethods.Popup
-}
-
 const appRoutes: Routes = [
-  {path:'', component:ShoppingListsComponent},
-  {path:'shopping-lists', component:ShoppingListsComponent},
-  {path:'shopping-list', component:ShoppingListComponent},
+  {path:'', component:ShoppingListComponent},
   {path:'add-shopping-item', component:AddShoppingItemComponent}
 ]
 
@@ -46,10 +38,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [FirebaseService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
