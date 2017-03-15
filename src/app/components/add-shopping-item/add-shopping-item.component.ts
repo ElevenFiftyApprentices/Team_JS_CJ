@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 })
 export class AddShoppingItemComponent implements OnInit {
   // title:any;
-  owner:any;
   city:any;
+  owner:any;
   // bedrooms:any;
   // price:any;
   // type:any;
