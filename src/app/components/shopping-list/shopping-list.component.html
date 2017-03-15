@@ -21,7 +21,8 @@
       <tbody>
         <tr *ngFor="let listings of listings">
           <td><input type="checkbox" id="check"></td>
-          <td>{{listings.owner}}</td>
+          <td>{{listings.owner}}<p>Priority:{{listings.city}}</p></td>
+
           <td><a class="btn btn-default" id="delete">Delete</a></td>
         </tr>
       </tbody>
