@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.services';
+<<<<<<< HEAD
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import * as firebase from 'firebase';
+=======
+import {Listings} from '../../Listings';
+>>>>>>> develop
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
+<<<<<<< HEAD
 
 })
 export class ShoppingListComponent implements OnInit {
@@ -38,3 +43,19 @@ export class ShoppingListComponent implements OnInit {
     });
   }
 }
+=======
+  providers: [FirebaseService]
+})
+export class ShoppingListComponent implements OnInit {
+  listings:Listings[];
+  constructor(private _firebaseService:FirebaseService) {
+  }
+
+  ngOnInit(){
+    this._firebaseService.getListings().subscribe(listings => { 
+      this.listings = listings;
+    });
+  }
+}
+
+>>>>>>> develop

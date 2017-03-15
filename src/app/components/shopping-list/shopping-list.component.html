@@ -1,7 +1,37 @@
-<p>
-  shopping-list works!
-</p>
+<div id="shoplistcontainer" class="container">
+  <article class="row">
+    <div class="col-md-6">
+       <h1>Groceries <small>Shopping List</small></h1>  
+    </div>
+    <div class="col-md-6 text-right">
+      <a class="btn btn-default" id="deleteAll">Delete Checked</a>
+      <a [routerLink]="['add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
+    </div>
+  </article>
+  <hr>
+  <article>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td></td>
+          <td>Contents</td>
+          <td>Options</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let listings of listings">
+          <td><input type="checkbox" id="check"></td>
+          <td>{{listings.owner}}<p>Priority:{{listings.city}}</p></td>
 
+<<<<<<< HEAD
   <ul *ngFor="let listings of shoppingItem">
     <li>{{listings.contents}}</li>
   </ul>
+=======
+          <td><a class="btn btn-default" id="delete">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</div>
+>>>>>>> develop

@@ -14,11 +14,11 @@ import { AddShoppingItemComponent } from './components/add-shopping-item/add-sho
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDg5lO-NWfKy9Tj9VLMCR9QArSpyOtp9uQ",
-  authDomain: "shoppinglistapp-45ee3.firebaseapp.com",
-  databaseURL: "https://shoppinglistapp-45ee3.firebaseio.com",
-  storageBucket: "shoppinglistapp-45ee3.appspot.com",
-  messagingSenderId: "464627240260"
+  apiKey: "AIzaSyCMG4cehwjCuvDniIomEBZ8uERSPBmVijY",
+  authDomain: "shoppinglists2.firebaseapp.com",
+  databaseURL: "https://shoppinglists2.firebaseio.com",
+  storageBucket: "shoppinglists2.appspot.com",
+  messagingSenderId: "894956291151"
 };
 
 const firebaseAuthConfig = {

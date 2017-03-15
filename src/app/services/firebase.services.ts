@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import * as firebase from 'firebase';
@@ -7,6 +8,19 @@ export class FirebaseService {
   shoppingItems: FirebaseListObservable<any[]>;
   shoppingItem: FirebaseObjectObservable<any[]>;
   folder: any;
+=======
+import {Injectable} from '@angular/core';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import 'rxjs/add/operator/map';
+import * as firebase from 'firebase';
+import {Listings} from '../Listings';
+
+@Injectable()
+export class FirebaseService{
+    listings: FirebaseListObservable<Listings[]>;
+    listing: FirebaseObjectObservable<any[]>;
+    
+>>>>>>> develop
 
     constructor(private af: AngularFire) {
     this.folder = 'shoppingItemimages';
@@ -17,6 +31,7 @@ export class FirebaseService {
         FirebaseListObservable<ShoppingItem[]>
         return this.shoppingItems;
     }
+<<<<<<< HEAD
 
     getShoppingItemDetails(id){
     this.shoppingItem = this.af.database.object('/shoppingitems/'+id) as FirebaseObjectObservable<ShoppingItem>
@@ -37,6 +52,19 @@ export class FirebaseService {
     }
   }
 
+=======
+    getListings(){
+        this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
+        FirebaseListObservable<Listings[]>
+        return this.listings;
+    }
+
+    addListings(listing){
+        let storageRef = firebase.storage().ref();
+        
+        return this.listings.push(listing);
+    }
+>>>>>>> develop
 }
 
 interface ShoppingItem{
