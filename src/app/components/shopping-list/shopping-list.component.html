@@ -9,19 +9,31 @@
     </div>
   </article>
   <hr>
+    <div class="large-6 columns">
+    <label> Filter Category
+        <select (change)="filterCategory(filteredCategory.value)" #filteredCategory>
+            <option value="0">Select</option>
+            <option *ngFor="let category of categories" value="{{category.city}}">{{category.city}}</option>
+        </select>
+    </label>
+
+  </div>  
   <article>
     <table class="table table-bordered">
       <thead>
         <tr>
           <td></td>
           <td>Contents</td>
+          <td>Priority</td>
           <td>Options</td>
+          
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let listings of listings">
           <td><input type="checkbox" id="check"></td>
-          <td>{{listings.owner}}<p>Priority:{{listings.city}}</p></td>
+          <td>{{listings.owner}}</td>
+          <td>{{listings.city}}</td>
           
           <td><button (click)="deleteListings(listings.$key)" class="button alert">Delete</button></td>
         </tr>
