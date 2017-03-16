@@ -1,6 +1,6 @@
 <div class="container text-center">
   <div><img src="../assets/img/logo.png"><div>
-  <div style="padding-top:30px">
-  <a [routerLink]="['shopping-list']"><img src="../assets/img/getStarted.png"></a>
+  <div style="padding-top:30px" *ngIf="!(af.auth | async)">
+  <a (click)="login()"><img src="../assets/img/getStarted.png"></a>
   </div>
 </div>
