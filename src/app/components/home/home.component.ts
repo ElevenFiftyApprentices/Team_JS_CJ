@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFire } from 'angularfire2';
+import {FirebaseService} from '../../services/firebase.services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +10,17 @@ import { AngularFire } from 'angularfire2';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public af:AngularFire) { }
+constructor(
+    public af:AngularFire,
+    private router:Router
+  ) { }
 
   ngOnInit() {
+
   }
 
-  login(){
+  login(loggedin){
     this.af.auth.login();
+    this.router.navigate(['/shopping-list']);
   }
-
 }

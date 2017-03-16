@@ -3,6 +3,7 @@ import {FirebaseService} from '../../services/firebase.services';
 import {Listings} from '../../Listings';
 import {Category} from '../../Category';
 
+
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
@@ -15,7 +16,10 @@ export class ShoppingListComponent implements OnInit {
   appState: string;
   activeKey: string;
 
-  constructor(private _firebaseService:FirebaseService) {
+  constructor(
+    private _firebaseService:FirebaseService,
+
+    ) {
   }
 
   ngOnInit(){
@@ -37,7 +41,6 @@ export class ShoppingListComponent implements OnInit {
 
   deleteListings(listing){
     this._firebaseService.deleteListings(listing);
-
   }
 }
 
