@@ -3,21 +3,41 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 import 'rxjs/add/operator/map';
 import * as firebase from 'firebase';
 import {Listings} from '../Listings';
+import {Category} from '../Category';
 
 @Injectable()
 export class FirebaseService{
     listings: FirebaseListObservable<Listings[]>;
     listing: FirebaseObjectObservable<any[]>;
+    categories: FirebaseListObservable<Category[]>;
     
 
     constructor(private _af: AngularFire){
         
     }
-    getListings(){
-        this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
-        FirebaseListObservable<Listings[]>
+
+        getListings(city:string = null){
+        if(city != null){
+            this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/', {
+                query: {
+                    orderByChild: 'city',
+                    equalTo: city
+                }
+            }) as 
+            FirebaseListObservable<Listings[]>
+        } else {
+            this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
+            FirebaseListObservable<Listings[]>
+        }
+        
         return this.listings;
     }
+
+    // getListings(){
+    //     this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
+    //     FirebaseListObservable<Listings[]>
+    //     return this.listings;
+    // }
 
     addListings(listing){    
         return this.listings.push(listing);
@@ -25,6 +45,14 @@ export class FirebaseService{
 
     deleteListings(listing) {
       this.listings.remove(listing);
+    }
+
+
+    
+    getCategories(){
+        this.categories = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
+        FirebaseListObservable<Category[]>
+        return this.categories;
     }
 
 }
