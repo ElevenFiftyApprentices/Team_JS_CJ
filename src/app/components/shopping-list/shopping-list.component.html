@@ -35,7 +35,7 @@
           <td>{{listings.owner}}</td>
           <td>{{listings.city}}</td>
           
-          <td><a (click)="deleteListings(listings.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
+          <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listings.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
         </tr>
       </tbody>
     </table>
