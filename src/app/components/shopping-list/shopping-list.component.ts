@@ -18,5 +18,10 @@ export class ShoppingListComponent implements OnInit {
       this.listings = listings;
     });
   }
+
+  deleteListings(listing){
+    this._firebaseService.deleteListings(listing);
+
+  }
 }
 

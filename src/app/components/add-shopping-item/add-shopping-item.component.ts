@@ -9,13 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
-  // title:any;
   owner:any;
   city:any;
-  // bedrooms:any;
-  // price:any;
-  // type:any;
-  // image:any;
+
 
   constructor(
     private firebaseService:FirebaseService,
@@ -26,12 +22,9 @@ export class AddShoppingItemComponent implements OnInit {
   }
   onAddSubmit(){
     let listings = {
-      // title: this.title,
       city: this.city,
       owner: this.owner
-      // bedrooms:this.bedrooms,
-      // price: this.price,
-      // type: this.type
+
     }
 
     this.firebaseService.addListings(listings);
