@@ -11,7 +11,7 @@ export class FirebaseService{
     
 
     constructor(private _af: AngularFire){
-    
+        
     }
     getListings(){
         this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
@@ -19,10 +19,14 @@ export class FirebaseService{
         return this.listings;
     }
 
-    addListings(listing){
-        let storageRef = firebase.storage().ref();
-        
+    addListings(listing){    
         return this.listings.push(listing);
     }
+
+    deleteListings(listing) {
+      this.listings.remove(listing);
+    }
+
 }
+
 
