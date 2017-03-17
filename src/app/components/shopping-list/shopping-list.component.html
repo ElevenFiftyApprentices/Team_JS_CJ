@@ -1,31 +1,47 @@
 <div id="shoplistcontainer" class="container">
   <article class="row">
-    <div class="col-md-6">
-       <h1>Groceries <small>Shopping List</small></h1>  
+    <div class="col-md-6 col-sm-6 text-left">
+       <h1>Groceries List</h1>  
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 col-sm-6 text-right">
       <a class="btn btn-default" id="deleteAll">Delete Checked</a>
-      <a [routerLink]="['add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
+      <a [routerLink]="['../add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
     </div>
   </article>
   <hr>
+    <div class="large-6 columns">
+    <label> Filter Category
+        <select (change)="filterCategory(filteredCategory.value)" #filteredCategory>
+            <option value="0">Select</option>
+            <option *ngFor="let category of categories" value="{{category.city}}">{{category.city}}</option>
+        </select>
+    </label>
+
+  </div>  
   <article>
     <table class="table table-bordered">
       <thead>
         <tr>
           <td></td>
           <td>Contents</td>
+          <td>Priority</td>
           <td>Options</td>
+          
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let listings of listings">
           <td><input type="checkbox" id="check"></td>
-          <td>{{listings.owner}}<p>Priority:{{listings.city}}</p></td>
-
-          <td><a class="btn btn-default" id="delete">Delete</a></td>
+          <td>{{listings.owner}}</td>
+          <td>{{listings.city}}</td>
+          
+          <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listings.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
         </tr>
       </tbody>
     </table>
   </article>
 </div>
+
+<style>
+.remove {background-color:#ddd;padding:4px 8px 5px 8px;border-radius:100%;}
+</style>

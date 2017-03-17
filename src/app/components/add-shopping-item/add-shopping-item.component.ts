@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
+<<<<<<< HEAD
   // title:any;
   city:any;
   owner:any;
@@ -15,6 +16,11 @@ export class AddShoppingItemComponent implements OnInit {
   // price:any;
   // type:any;
   // image:any;
+=======
+  owner:any;
+  city:any;
+
+>>>>>>> b48765646a8a7ed4bcc39b7954703672bc19e9f5
 
   constructor(
     private firebaseService:FirebaseService,
@@ -25,17 +31,14 @@ export class AddShoppingItemComponent implements OnInit {
   }
   onAddSubmit(){
     let listings = {
-      // title: this.title,
       city: this.city,
       owner: this.owner
-      // bedrooms:this.bedrooms,
-      // price: this.price,
-      // type: this.type
+
     }
 
     this.firebaseService.addListings(listings);
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/shopping-list']);
   }
 
 }
