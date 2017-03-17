@@ -10,17 +10,19 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-constructor(
-    public af:AngularFire,
-    private router:Router
-  ) { }
+  error: any;
+  constructor(public af: AngularFire, private router: Router) {
+    this.af.auth.subscribe(auth => {
+      if(auth) {
+        this.router.navigateByUrl('/shopping-list');
+      }
+    })
+  }
 
   ngOnInit() {
-
   }
 
   login(loggedin){
     this.af.auth.login();
-    this.router.navigate(['/shopping-list']);
   }
 }

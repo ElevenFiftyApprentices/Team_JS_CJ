@@ -16,12 +16,12 @@ export class FirebaseService{
         
     }
 
-        getListings(city:string = null){
-        if(city != null){
+        getListings(priority:string = null){
+        if(priority != null){
             this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/', {
                 query: {
-                    orderByChild: 'city',
-                    equalTo: city
+                    orderByChild: 'priority',
+                    equalTo: priority
                 }
             }) as 
             FirebaseListObservable<Listings[]>
@@ -33,11 +33,6 @@ export class FirebaseService{
         return this.listings;
     }
 
-    // getListings(){
-    //     this.listings = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
-    //     FirebaseListObservable<Listings[]>
-    //     return this.listings;
-    // }
 
     addListings(listing){    
         return this.listings.push(listing);
@@ -45,10 +40,11 @@ export class FirebaseService{
 
     deleteListings(listing) {
       this.listings.remove(listing);
+      
     }
 
 
-    
+
     getCategories(){
         this.categories = this._af.database.list('https://shoppinglists2.firebaseio.com/listings2/listings/') as 
         FirebaseListObservable<Category[]>
