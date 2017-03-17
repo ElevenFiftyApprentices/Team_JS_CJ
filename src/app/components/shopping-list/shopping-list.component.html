@@ -5,7 +5,9 @@
     </div>
     <div class="col-md-6 col-sm-6 text-right">
       <a class="btn btn-default" id="deleteAll">Delete Checked</a>
+
       <a [routerLink]="['../add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
+
     </div>
   </article>
   <hr>
@@ -13,7 +15,7 @@
     <label> Filter Category
         <select (change)="filterCategory(filteredCategory.value)" #filteredCategory>
             <option value="0">Select</option>
-            <option *ngFor="let category of categories" value="{{category.city}}">{{category.city}}</option>
+            <option *ngFor="let category of categories" value="{{category.priority}}">{{category.priority}}</option>
         </select>
     </label>
 
@@ -30,12 +32,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let listings of listings">
-          <td><input type="checkbox" id="check"></td>
-          <td>{{listings.owner}}</td>
-          <td>{{listings.city}}</td>
+        <tr *ngFor="let listing of listings">
+          <td><input type="checkbox" class="checkbox" [(ngModel)]="listing.completed"></td>
+          <td [ngClass]="{'checked': listing.completed}">{{listing.content}} 
+            <p [ngClass]="{'checked': listing.completed}">Priority: {{listing.note}}</p>
+            </td>
+          <td [ngClass]="{'checked': listing.completed}">{{listing.priority}}</td>
           
+
           <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listings.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
+
         </tr>
       </tbody>
     </table>
