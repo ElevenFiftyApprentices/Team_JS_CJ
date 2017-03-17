@@ -14,8 +14,10 @@ export class ShoppingListComponent implements OnInit {
   categories:Category[];
   appState: string;
   activeKey: string;
+  
 
   constructor(private _firebaseService:FirebaseService) {
+    
   }
 
   ngOnInit(){
@@ -29,8 +31,8 @@ export class ShoppingListComponent implements OnInit {
   }
 
 
-  filterCategory(city){
-    this._firebaseService.getListings(city).subscribe(listings => {
+  filterCategory(priority){
+    this._firebaseService.getListings(priority).subscribe(listings => {
       this.listings = listings;
     });
   }
@@ -39,5 +41,14 @@ export class ShoppingListComponent implements OnInit {
     this._firebaseService.deleteListings(listing);
 
   }
+
+// deleteSelectedListings(listings) {
+//       //need ES5 to reverse loop in order to splice by index
+//       for(var i=(this.listings.length -1); i > -1; i--) {
+//         if(this.listings[i].isChecked) {
+//           this._firebaseService.deleteSelectedListings(listings);
+//         }
+//       }
+// }
 }
 

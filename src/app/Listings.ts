@@ -1,9 +1,9 @@
 export interface Listings{
     $key?: string;
-    bedrooms?: string;
-    city?: string;
-    image?: string;
-    owner?: string;
+    isChecked?: boolean;
+    priority?: string;
+    note?: string;
+    content?: string;
     path?: string;
     price?: string;
     title?:string;

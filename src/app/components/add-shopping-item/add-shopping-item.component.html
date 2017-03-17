@@ -12,15 +12,19 @@
     <form (submit)="onAddSubmit()">
       <div class="form-group">
         <label>Contents</label>
-        <input class="form-control" type="text" [(ngModel)]="owner" name="owner" required>
+        <input class="form-control" type="text" [(ngModel)]="content" name="content" required>
       </div>
       <div class="form-group">
         <label>Priority</label>
-        <select class="form-control" type="text" [(ngModel)]="city" name="city" required>
+        <select class="form-control" type="text" [(ngModel)]="priority" name="priority" required>
           <option value="It can wait">It Can Wait</option>
           <option value="Need it soon">Need it soon</option>
           <option value="Grab it now">Grab it now!</option>
         </select>
+        <div class="form-group">
+        <label>Notes</label>
+        <input class="form-control" type="text" [(ngModel)]="note" name="note" required>
+      </div>
       </div>
         <input type="submit" value="submit" class="btn btn-success">
     </form>

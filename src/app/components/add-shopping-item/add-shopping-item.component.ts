@@ -9,8 +9,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
-  owner:any;
-  city:any;
+  content:any;
+  priority:any;
+  note:any;
+  isChecked:boolean;
 
 
   constructor(
@@ -22,8 +24,10 @@ export class AddShoppingItemComponent implements OnInit {
   }
   onAddSubmit(){
     let listings = {
-      city: this.city,
-      owner: this.owner
+      priority: this.priority,
+      content: this.content,
+      note: this.note
+      
 
     }
 
