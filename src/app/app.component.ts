@@ -22,14 +22,5 @@ export class AppComponent implements OnInit {
       this.listings = listings;
     });
 
-    // this._firebaseService.getCategories().subscribe(categories => {
-    //   this.categories = categories;
-    // });
   }
-
-  // filterCategory(category){
-  //   this._firebaseService.getListings(category).subscribe(categories => {
-  //     this.categories = categories;
-  //   });
-  // }
 }

@@ -15,11 +15,11 @@ export class ShoppingListComponent implements OnInit {
   categories:Category[];
   appState: string;
   activeKey: string;
+  
 
-  constructor(
-    private _firebaseService:FirebaseService,
 
-    ) {
+  constructor(private _firebaseService:FirebaseService) {
+
   }
 
   ngOnInit(){
@@ -33,8 +33,8 @@ export class ShoppingListComponent implements OnInit {
   }
 
 
-  filterCategory(city){
-    this._firebaseService.getListings(city).subscribe(listings => {
+  filterCategory(priority){
+    this._firebaseService.getListings(priority).subscribe(listings => {
       this.listings = listings;
     });
   }
