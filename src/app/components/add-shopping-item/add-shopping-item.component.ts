@@ -33,7 +33,7 @@ export class AddShoppingItemComponent implements OnInit {
 
     this.firebaseService.addListings(listings);
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/shopping-list']);
   }
 
 }

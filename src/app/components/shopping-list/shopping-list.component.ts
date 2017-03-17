@@ -3,6 +3,7 @@ import {FirebaseService} from '../../services/firebase.services';
 import {Listings} from '../../Listings';
 import {Category} from '../../Category';
 
+
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
@@ -16,8 +17,9 @@ export class ShoppingListComponent implements OnInit {
   activeKey: string;
   
 
+
   constructor(private _firebaseService:FirebaseService) {
-    
+
   }
 
   ngOnInit(){
@@ -39,16 +41,6 @@ export class ShoppingListComponent implements OnInit {
 
   deleteListings(listing){
     this._firebaseService.deleteListings(listing);
-
   }
-
-// deleteSelectedListings(listings) {
-//       //need ES5 to reverse loop in order to splice by index
-//       for(var i=(this.listings.length -1); i > -1; i--) {
-//         if(this.listings[i].isChecked) {
-//           this._firebaseService.deleteSelectedListings(listings);
-//         }
-//       }
-// }
 }
 
