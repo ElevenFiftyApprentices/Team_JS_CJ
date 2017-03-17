@@ -40,7 +40,7 @@
           <td [ngClass]="{'checked': listing.completed}">{{listing.priority}}</td>
           
 
-          <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listings.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
+          <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listing.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
 
         </tr>
       </tbody>

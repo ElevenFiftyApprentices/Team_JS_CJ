@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class AddShoppingItemComponent implements OnInit {
   content:any;
   priority:any;
-  note:any;
+  note?:any;
   isChecked:boolean;
 
 
