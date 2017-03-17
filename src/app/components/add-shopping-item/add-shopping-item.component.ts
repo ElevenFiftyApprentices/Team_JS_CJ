@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class AddShoppingItemComponent implements OnInit {
   content:any;
   priority:any;
+  color:any;
   note?:any;
   isChecked:boolean;
 
@@ -26,6 +27,7 @@ export class AddShoppingItemComponent implements OnInit {
     let listings = {
       priority: this.priority,
       content: this.content,
+      color: this.color,
       note: this.note
       
 
