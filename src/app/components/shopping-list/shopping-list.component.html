@@ -33,9 +33,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let listing of listings">
-          <td><input type="checkbox" class="checkbox" (click)="onCompleted(listing.isChecked)"  [(ngModel)]="listing.completed"></td>
+          <td><input type="checkbox" class="checkbox" (click)="onCompleted(listing.isChecked)"  [(ngModel)]="listing.isChecked"></td>
           <td [ngClass]="{'checked': listing.isChecked}"> <strong><font color="{{listing.color}}">{{listing.content}}</font></strong>
-            <p [ngClass]="{'checked': listing.isChecked}">Notes: {{listing.note}}</p>
+            <p [ngClass]="{'checked': listing.isChecked}"><font color="{{listing.color}}">Notes: {{listing.note}}</font></p>
             </td>
           <td [ngClass]="{'checked': listing.isChecked}">{{listing.priority}}</td>
           
