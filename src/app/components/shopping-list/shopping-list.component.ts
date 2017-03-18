@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.services';
+import {Router} from '@angular/router';
 import {Listings} from '../../Listings';
 import {Category} from '../../Category';
 
@@ -15,11 +16,12 @@ export class ShoppingListComponent implements OnInit {
   categories:Category[];
   appState: string;
   activeKey: string;
-  
+
+  isChecked:boolean;
 
 
-  constructor(private _firebaseService:FirebaseService) {
-
+  constructor(private _firebaseService:FirebaseService, private router:Router) {
+    
   }
 
   ngOnInit(){
@@ -37,6 +39,13 @@ export class ShoppingListComponent implements OnInit {
     this._firebaseService.getListings(priority).subscribe(listings => {
       this.listings = listings;
     });
+  }
+
+  onCompleted(isChecked){
+      let listings = {
+      isChecked:this.isChecked
+    }
+     this._firebaseService.addChecked(isChecked);
   }
 
   deleteListings(listing){

@@ -25,9 +25,8 @@ export class AddShoppingItemComponent implements OnInit {
     let listings = {
       priority: this.priority,
       content: this.content,
-      note: this.note
-      
-
+      note: this.note,
+      isChecked: this.isChecked=false
     }
 
     this.firebaseService.addListings(listings);
