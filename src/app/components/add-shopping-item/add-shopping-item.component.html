@@ -21,12 +21,15 @@
           <option value="Need it soon">Need it soon</option>
           <option value="Grab it now">Grab it now!</option>
         </select>
-        <div class="form-group">
-        <label>Notes</label>
-        <input class="form-control" type="text" [(ngModel)]="note" name="note" required>
-     
       </div>
-      </div>
+      <div class="form-group">
+          <label>Item Color (Enter Hex Color)</label>
+          <input class="form-control" type="text" [(ngModel)]="color" name="color" required>
+        </div>
+      <div class="form-group">
+          <label>Notes</label>
+          <input class="form-control" type="textarea" [(ngModel)]="note" name="note" rows="3" required>
+        </div>
         <input type="submit" value="submit" class="btn btn-success">
     </form>
   </article>
