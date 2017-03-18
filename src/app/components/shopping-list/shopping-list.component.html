@@ -33,11 +33,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let listing of listings">
-          <td><input type="checkbox" class="checkbox" [(ngModel)]="listing.completed"></td>
-          <td [ngClass]="{'checked': listing.completed}"> <strong><font color="{{listing.color}}">{{listing.content}}</font></strong>
-            <p [ngClass]="{'checked': listing.completed}">Notes: {{listing.note}}</p>
+          <td><input type="checkbox" class="checkbox" (click)="onCompleted(listing.isChecked)"  [(ngModel)]="listing.completed"></td>
+          <td [ngClass]="{'checked': listing.isChecked}"> <strong><font color="{{listing.color}}">{{listing.content}}</font></strong>
+            <p [ngClass]="{'checked': listing.isChecked}">Notes: {{listing.note}}</p>
             </td>
-          <td [ngClass]="{'checked': listing.completed}">{{listing.priority}}</td>
+          <td [ngClass]="{'checked': listing.isChecked}">{{listing.priority}}</td>
           
 
           <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listing.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
@@ -50,5 +50,5 @@
 
 <style>
 .remove {background-color:#ddd;padding:4px 8px 5px 8px;border-radius:100%;}
-
 </style>
+

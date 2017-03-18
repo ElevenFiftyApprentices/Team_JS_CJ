@@ -26,9 +26,9 @@ export class AddShoppingItemComponent implements OnInit {
     let listings = {
       priority: this.priority,
       content: this.content,
+      isChecked: this.isChecked=false,
       color: this.color,
       note: this.note
-      
 
     }
 
