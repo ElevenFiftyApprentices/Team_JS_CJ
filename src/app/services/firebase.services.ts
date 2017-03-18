@@ -11,6 +11,8 @@ export class FirebaseService{
     listing: FirebaseObjectObservable<any[]>;
     categories: FirebaseListObservable<Category[]>;
     
+    isChecked:boolean;
+    
 
     constructor(private _af: AngularFire){
         
@@ -43,6 +45,16 @@ export class FirebaseService{
       
     }
 
+    addChecked(isChecked){
+            if(isChecked){
+                console.log(JSON.stringify(isChecked))
+                return this.listings.push(isChecked);
+            }else{
+                console.log(JSON.stringify(isChecked))
+                return this.listings.push(false);
+            }
+        
+    }
 
 
     getCategories(){

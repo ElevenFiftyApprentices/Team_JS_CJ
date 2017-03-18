@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.services';
-// import {Listings} from '../../Listings';
 import {Router} from '@angular/router';
 
 @Component({
@@ -27,9 +26,9 @@ export class AddShoppingItemComponent implements OnInit {
     let listings = {
       priority: this.priority,
       content: this.content,
+      isChecked: this.isChecked=false,
       color: this.color,
       note: this.note
-      
 
     }
 
