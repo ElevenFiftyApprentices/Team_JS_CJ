@@ -4,7 +4,7 @@
        <h1>Groceries List</h1>  
     </div>
     <div class="col-md-6 col-sm-6 text-right">
-      <a class="btn btn-default" id="deleteAll">Delete Checked</a>
+      <a class="btn btn-default" (click)="deleteChecked()" id="deleteChecked">Delete Checked</a>
 
       <a [routerLink]="['../add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
 
@@ -28,6 +28,7 @@
           <td>Contents</td>
           <td>Priority</td>
           <td>Options</td>
+
           
         </tr>
       </thead>
@@ -41,7 +42,6 @@
           
 
           <td><a  [routerLink]="['../shopping-list']" (click)="deleteListings(listing.$key)" href="#" class="remove"><span class="fa fa-remove"></span></a></td>
-
         </tr>
       </tbody>
     </table>

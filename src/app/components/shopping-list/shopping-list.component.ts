@@ -52,5 +52,12 @@ export class ShoppingListComponent implements OnInit {
     this._firebaseService.deleteListings(listing);
   }
 
+  // deleteChecked(listing){
+  //  if(listing.isChecked) {
+  //     this._firebaseService.deleteListings(listing)
+    
+  //  }
+  }
+
 }
 
