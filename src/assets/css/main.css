@@ -1,0 +1,9 @@
+.navbar {border-radius: 0;}
+#shoplistcontainer.container {background-color:#fff;padding:15px;border:4px solid #333;}
+table thead tr {background-color:#ccc;}
+table thead tr td {font-weight:bold;}
+table tr td:first-child {width:15px;}
+table tr td:last-child {width:100px;}
+body {background-color:#4abdac;}
+hr {border-color:black;}
+h1 {margin:0;font-size:28px;}
