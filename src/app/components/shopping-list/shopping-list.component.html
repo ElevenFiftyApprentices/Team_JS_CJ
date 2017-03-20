@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6 col-sm-6 text-right">
 
-      <a class="btn btn-default" id="deleteAll" (click)="deleteListings(!listing.isChecked)">Delete Checked</a>
+      <a class="btn btn-default" id="deleteAll" (click)="deleteListings(listing.$key)">Delete Checked</a>
 
       <a [routerLink]="['../add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
 
