@@ -12,6 +12,7 @@ import { AddShoppingListComponent } from './components/add-shopping-list/add-sho
 import { AddShoppingItemComponent } from './components/add-shopping-item/add-shopping-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { ListingsFilterPipe } from './components/shopping-list/shopping-list-filter.pipe'
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCMG4cehwjCuvDniIomEBZ8uERSPBmVijY",
@@ -28,6 +29,8 @@ const firebaseAuthConfig = {
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
+  {path:'shopping-lists', component:ShoppingListsComponent},
+  {path:'add-shopping-list', component:AddShoppingListComponent},
   {path:'shopping-list', component:ShoppingListComponent},
   {path:'add-shopping-item', component:AddShoppingItemComponent}
 ]
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     AddShoppingListComponent,
     AddShoppingItemComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ListingsFilterPipe
   ],
   imports: [
     BrowserModule,

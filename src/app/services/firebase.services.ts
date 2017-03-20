@@ -7,11 +7,12 @@ import {Category} from '../Category';
 
 @Injectable()
 export class FirebaseService{
+    // newList: FirebaseListObservable<newList[]>;
     listings: FirebaseListObservable<Listings[]>;
     listing: FirebaseObjectObservable<any[]>;
     categories: FirebaseListObservable<Category[]>;
     
-    isChecked:boolean;
+    // isChecked:boolean;
     
 
     constructor(private _af: AngularFire){
@@ -38,6 +39,14 @@ export class FirebaseService{
 
     addListings(listing){    
         return this.listings.push(listing);
+    }
+
+    newListing(newList){   
+        console.log("nothing")
+        
+        return this.listings.push(newList);
+        
+        
     }
 
     deleteListings(listing) {

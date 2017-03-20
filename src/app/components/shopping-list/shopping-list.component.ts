@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import {FirebaseService} from '../../services/firebase.services';
+import { FormsModule } from '@angular/forms';
 import {Router} from '@angular/router';
 import {Listings} from '../../Listings';
 import {Category} from '../../Category';
-
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css'],
   providers: [FirebaseService]
+  
 })
 export class ShoppingListComponent implements OnInit {
   listings:Listings[];
   categories:Category[];
   appState: string;
   activeKey: string;
+  listFilter: string;
 
   isChecked:boolean;
-
+  checked:any[];
 
   constructor(private _firebaseService:FirebaseService, private router:Router) {
     
@@ -52,12 +55,6 @@ export class ShoppingListComponent implements OnInit {
     this._firebaseService.deleteListings(listing);
   }
 
-  // deleteChecked(listing){
-  //  if(listing.isChecked) {
-  //     this._firebaseService.deleteListings(listing)
-    
-  //  }
-  }
 
 }
 

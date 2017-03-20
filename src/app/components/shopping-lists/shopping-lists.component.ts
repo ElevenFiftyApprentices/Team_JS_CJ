@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FirebaseService} from '../../services/firebase.services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-shopping-lists',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _firebaseService:FirebaseService, private router:Router) { }
 
   ngOnInit() {
   }
