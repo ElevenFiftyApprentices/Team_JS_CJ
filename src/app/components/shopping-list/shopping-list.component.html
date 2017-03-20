@@ -4,7 +4,7 @@
        <h1>Groceries List</h1>  
     </div>
     <div class="col-md-6 col-sm-6 text-right">
-      <a class="btn btn-default" id="deleteAll">Delete Checked</a>
+      <a class="btn btn-default" id="deleteAll" (click)="deleteListings(!listing.isChecked)">Delete Checked</a>
 
       <a [routerLink]="['../add-shopping-item']" class="btn btn-primary" id="Add">Add Item</a>
 
@@ -13,6 +13,17 @@
   <hr>
     <div class="large-6 columns">
     <label> Filter Category
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]='listFilter' />
+            </div>
+        </div>
+        <div class='row' *ngIf='listFilter'>
+            <div class='col-md-6'>
+                <p>Filtered by: {{listFilter}} </p>
+            </div>
+        </div>
         <select (change)="filterCategory(filteredCategory.value)" #filteredCategory>
             <option value="0">Select</option>
             <option *ngFor="let category of categories" value="{{category.priority}}">{{category.priority}}</option>
@@ -32,8 +43,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let listing of listings">
-          <td><input type="checkbox" class="checkbox" (click)="onCompleted(listing.isChecked)"  [(ngModel)]="listing.isChecked"></td>
+        <tr *ngFor='let listing of listings | listingFilter:listFilter'>
+          <td><input type="checkbox" class="checkbox" (click)="onCompleted(listing.isChecked)"   [(ngModel)]="listing.isChecked"></td>
           <td [ngClass]="{'checked': listing.isChecked}"> <strong><font color="{{listing.color}}">{{listing.content}}</font></strong>
             <p [ngClass]="{'checked': listing.isChecked}"><font color="{{listing.color}}">Notes: {{listing.note}}</font></p>
             </td>
