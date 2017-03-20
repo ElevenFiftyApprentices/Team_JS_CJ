@@ -48,7 +48,7 @@ export class ShoppingListComponent implements OnInit {
       let listings = {
       isChecked:this.isChecked
     }
-     this._firebaseService.addChecked(isChecked);
+     //this._firebaseService.addChecked(isChecked);
   }
 
   deleteListings(listing){
