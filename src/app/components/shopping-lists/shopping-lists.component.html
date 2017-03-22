@@ -1,3 +1,56 @@
-<p>
-  shopping-lists works!
-</p>
+<div id="shoplistcontainer" class="container">
+  <article class="row">
+    <div class="col-md-6 col-sm-6 text-left">
+       <h1>Shopping Lists</h1>  
+    </div>
+    <div class="col-md-6 col-sm-6 text-right">
+      <a href="#" class="btn btn-primary">Add List</a>
+    </div>
+  </article>
+  <hr>
+
+  <article>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Options</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="width:65%"><a [routerLink]="['../shopping-list']"><strong>Groceries List</strong></a>
+            </td>
+          <td>
+            <a [routerLink]="['../shopping-list']" class="btn btn-warning">Show</a>
+            <a class="btn btn-default">Delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="#"><strong>Clothes</strong></a>
+            </td>
+          <td>
+            <a class="btn btn-warning">Show</a>
+            <a class="btn btn-default">Delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="#"><strong>School Supplies</strong></a>
+            </td>
+          <td>
+            <a class="btn btn-warning">Show</a>
+            <a class="btn btn-default">Delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td><a href="#"><strong>DIY Items</strong></a>
+            </td>
+          <td>
+            <a class="btn btn-warning">Show</a>
+            <a class="btn btn-default">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</div>

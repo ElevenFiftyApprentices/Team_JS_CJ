@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   constructor(public af: AngularFire, private router: Router) {
     this.af.auth.subscribe(auth => {
       if(auth) {
-        this.router.navigateByUrl('/shopping-list');
+        this.router.navigateByUrl('/shopping-lists');
       }
     })
   }

@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-shopping-item.component.css']
 })
 export class AddShoppingItemComponent implements OnInit {
+  id:any;
   content:any;
   priority:any;
   color:any;
