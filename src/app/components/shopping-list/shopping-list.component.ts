@@ -14,7 +14,9 @@ import { NgModule } from '@angular/core';
   
 })
 export class ShoppingListComponent implements OnInit {
+  id:any;
   listings:Listings[];
+  listing:any;
   categories:Category[];
   appState: string;
   activeKey: string;
@@ -35,6 +37,7 @@ export class ShoppingListComponent implements OnInit {
     this._firebaseService.getCategories().subscribe(categories => {
       this.categories = categories;
     });
+
   }
 
 
@@ -45,16 +48,33 @@ export class ShoppingListComponent implements OnInit {
   }
 
   onCompleted(isChecked){
+    console.log(this.listing)
       let listings = {
       isChecked:this.isChecked
     }
-     //this._firebaseService.addChecked(isChecked);
+     this._firebaseService.addChecked(isChecked);
   }
 
   deleteListings(listing){
     this._firebaseService.deleteListings(listing);
   }
 
+  getlisting(listing){
+    console.log(listing)
+     this._firebaseService.getListing(listing.$key).subscribe(listing => { 
+        this.listing = listing;
+    });
+      this._firebaseService.addChecked(listing.isChecked);
+    console.log("individual listing", this.listing)
+  }
+
+deleteSelectedTodos() {
+      //need ES5 to reverse loop in order to splice by index
+      for(var i=(this.listing.length -1); i > -1; i--) {
+        if(this.listing[i].isChecked) {
+          this.listing.splice(i, 1);
+        }
+      }
 
 }
 

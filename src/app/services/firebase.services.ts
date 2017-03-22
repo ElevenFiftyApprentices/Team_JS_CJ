@@ -8,15 +8,16 @@ import {Category} from '../Category';
 @Injectable()
 export class FirebaseService{
     // newList: FirebaseListObservable<newList[]>;
-    listings: FirebaseListObservable<Listings[]>;
-    listing: FirebaseObjectObservable<any[]>;
+    listings: FirebaseListObservable<any[]>;
+    listing: FirebaseObjectObservable<any>;
     categories: FirebaseListObservable<Category[]>;
     
     // isChecked:boolean;
     
 
     constructor(private _af: AngularFire){
-        
+        this.listings = _af.database.list('/listings/') 
+        this.listing = _af.database.object('/listings/') 
     }
 
         getListings(priority:string = null){
@@ -36,6 +37,16 @@ export class FirebaseService{
         return this.listings;
     }
 
+getListing(id){ 
+    this.listing = this._af.database.object('https://shoppinglists2.firebaseio.com/listings2/listings/'+id) as
+    FirebaseObjectObservable<any>
+    return this.listing;
+}
+
+getListingDetails(id){
+    this.listing = this._af.database.object('/listings/'+id) as FirebaseObjectObservable<Listings>
+     return this.listing;
+  }
 
     addListings(listing){    
         return this.listings.push(listing);
@@ -45,9 +56,17 @@ export class FirebaseService{
         console.log("nothing")
         
         return this.listings.push(newList);
-        
-        
+           
     }
+// Tried this again at 11pm 3/21
+    updateValue(isChecked: any) {
+    this.listing.update(isChecked).then(_ => console.log('update!'));
+  }
+
+
+//     updateListing(id, listing){
+//     return this.listings.update(id, listing);
+//   }
 
     deleteListings(listing) {
       this.listings.remove(listing);
@@ -56,11 +75,11 @@ export class FirebaseService{
 
     addChecked(isChecked){
             if(isChecked){
-                console.log(JSON.stringify(isChecked))
-                return this.listings.push(isChecked);
+                console.log(isChecked)
+                return this.listing.update({"isChecked": isChecked});
             }else{
-                console.log(JSON.stringify(isChecked))
-                return this.listings.push(false);
+                console.log(isChecked)
+                return this.listing.update({"isChecked": isChecked});
             }
         
     }
