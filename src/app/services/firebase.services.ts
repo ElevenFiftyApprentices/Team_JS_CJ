@@ -73,6 +73,11 @@ getListingDetails(id){
       
     }
 
+    deleteSelected(listing) {
+      this.listings.remove(listing);
+      
+    }
+
     addChecked(isChecked){
             if(isChecked){
                 console.log(isChecked)

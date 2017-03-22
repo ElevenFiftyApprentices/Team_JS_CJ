@@ -68,13 +68,13 @@ export class ShoppingListComponent implements OnInit {
     console.log("individual listing", this.listing)
   }
 
-deleteSelectedTodos() {
+deleteSelected(listings) {
       //need ES5 to reverse loop in order to splice by index
       for(var i=(this.listing.length -1); i > -1; i--) {
         if(this.listing[i].isChecked) {
           this.listing.splice(i, 1);
         }
       }
-
+      this._firebaseService.deleteSelected(listings);
 }
-
+}
