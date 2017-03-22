@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import {FirebaseService} from './services/firebase.services';
 
 import { AppComponent } from './app.component';
 import { ShoppingListsComponent } from './components/shopping-lists/shopping-lists.component';
@@ -13,6 +14,7 @@ import { AddShoppingItemComponent } from './components/add-shopping-item/add-sho
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListingsFilterPipe } from './components/shopping-list/shopping-list-filter.pipe'
+import { CheckBoxUpdate } from './components/shopping-list/shopping-list-checkbox.update'
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCMG4cehwjCuvDniIomEBZ8uERSPBmVijY",
@@ -45,6 +47,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomeComponent,
     ListingsFilterPipe
+    // CheckBoxUpdate
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
